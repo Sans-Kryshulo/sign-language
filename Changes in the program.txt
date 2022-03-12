@@ -4,3 +4,5 @@ Version 0.0.2
 The area where the video from the camera will be broadcast has been created.
 Version 0.0.3
 Added broadcast from camera. 
+Version 0.0.4
+So far, I've found an AI called Mediapipe, but it's just not suitable for Visual Studio, so I need to use my prototype, which has working code that implements Hand Detection. 
