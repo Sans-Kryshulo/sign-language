@@ -1,2 +1,4 @@
 Version 0.0.1
 The program was created.
+Version 0.0.2
+The area where the video from the camera will be broadcast has been created.
