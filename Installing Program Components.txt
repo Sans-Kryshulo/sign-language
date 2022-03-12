@@ -1,0 +1,20 @@
+Instructions for Windows users:
+1) Install Python if it is not already installed
+2) Open the console
+3) Enter the commands in the following sequence:
+python -m pip install --upgrade pip
+pip install opencv-python
+pip install matplotlib
+
+Instructions for Macos users:
+1) Install Python if it is not already installed
+2) Open the console
+3) Enter the commands in the following sequence:
+$ wget https://repo.continuum.io/miniconda/Miniconda-latest-MacOSX-x86_64.sh
+$ bash ./Miniconda-latest-MacOSX-x86_64.sh
+$ conda install opencv
+$ brew install python3
+$ brew install freetype
+$ brew install pkg-config
+$ sudo pip3 install matplotlib 
+
