@@ -1,8 +1,3 @@
 # sign-language
-A program that can recognize sign language
-Hello is the test!
-La la la la 
-Ho ho ho ho
-loloolololol
-lmfmf;wlefm
-wfwefwfeS
+Sign language recognition program.
+Version 0.0.0 
