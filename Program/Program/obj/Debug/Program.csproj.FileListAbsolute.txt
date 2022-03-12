@@ -1,0 +1,11 @@
+D:\Проекти\live\sign-language\Program\Program\bin\Debug\Program.exe.config
+D:\Проекти\live\sign-language\Program\Program\bin\Debug\Program.exe
+D:\Проекти\live\sign-language\Program\Program\bin\Debug\Program.pdb
+D:\Проекти\live\sign-language\Program\Program\obj\Debug\Program.csproj.AssemblyReference.cache
+D:\Проекти\live\sign-language\Program\Program\obj\Debug\Program.csproj.SuggestedBindingRedirects.cache
+D:\Проекти\live\sign-language\Program\Program\obj\Debug\Program.Form1.resources
+D:\Проекти\live\sign-language\Program\Program\obj\Debug\Program.Properties.Resources.resources
+D:\Проекти\live\sign-language\Program\Program\obj\Debug\Program.csproj.GenerateResource.cache
+D:\Проекти\live\sign-language\Program\Program\obj\Debug\Program.csproj.CoreCompileInputs.cache
+D:\Проекти\live\sign-language\Program\Program\obj\Debug\Program.exe
+D:\Проекти\live\sign-language\Program\Program\obj\Debug\Program.pdb
