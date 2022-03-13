@@ -1,4 +1,4 @@
 Sign language recognition program.
 The program will be implemented at Python.
 To work with the program you need to install Opencv Python and Matplotlib. Read the installation instructions in the "Installing Software Components" text document. 
-Version 0.0.4
+Version 0.1.0

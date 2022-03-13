@@ -4,43 +4,43 @@ import mediapipe as mp
 import time
 import os
 
-# Подключаем камеру
 cap = cv2.VideoCapture(0) 
 cap.set(3, 640)
 cap.set(4, 480)
 cap.set(10, 100)
 
-mpHands = mp.solutions.hands
-hands = mpHands.Hands(False)
-npDraw = mp.solutions.drawing_utils
+mp_holistic = mp.solutions.holistic
+mp_drawing = mp.solutions.drawing_utils
 
 pTime = 0
 cTime = 0
 	
 
 while True: 
-    success, img = cap.read()
-    img = cv2.flip(img,1)
-    imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-    results = hands.process(imgRGB)
-    if results.multi_hand_landmarks:
-        for handLms in results.multi_hand_landmarks:
-            for id, lm in enumerate(handLms.landmark):
-                h,w,c = img.shape
-                cx, cy = int(lm.x*w), int(lm.y*h)
-                # print(id, lm)
-                if  id == 8 or id == 12:
-                    cv2.circle(img, (cx,cy),10,(255,0,255),cv2.FILLED)
-            
-            npDraw.draw_landmarks(img, handLms, mpHands.HAND_CONNECTIONS)
-    
+    with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5) as holistic:
+        ret, frame = cap.read()
+        image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        results = holistic.process(image)
+        # print(results.right_hand_landmarks)
+        # print(results.left_hand_landmarks)
+        # print(results.pose_landmarks)
+        image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+        
+        # Right hand
+        mp_drawing.draw_landmarks(image, results.right_hand_landmarks, mp_holistic.HAND_CONNECTIONS)
 
+        # Left Hand
+        mp_drawing.draw_landmarks(image, results.left_hand_landmarks, mp_holistic.HAND_CONNECTIONS)
+
+        # Pose Detections
+        # mp_drawing.draw_landmarks(image, results.pose_landmarks, mp_holistic.POSE_CONNECTIONS)
+    
     cTime = time.time()
     fps = 1/(cTime-pTime)
     pTime = cTime
-    cv2.putText(img, str(int(fps)),(10,30), cv2.FONT_HERSHEY_PLAIN, 2, (255,0,0), 2)
+    cv2.putText(image, str(int(fps)),(10,30), cv2.FONT_HERSHEY_PLAIN, 2, (255,0,0), 2)
     
-    cv2.imshow('python', img)
+    cv2.imshow('python', image)
     if cv2.waitKey(20) == 27:
         break
         
