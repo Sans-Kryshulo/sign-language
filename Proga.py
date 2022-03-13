@@ -4,7 +4,8 @@ import mediapipe as mp
 import time
 import os
 
-cap = cv2.VideoCapture(0) 
+# cap = cv2.VideoCapture(0) 
+cap = cv2.VideoCapture("Videos/1.mp4") 
 cap.set(3, 640)
 cap.set(4, 480)
 cap.set(10, 100)
@@ -14,7 +15,6 @@ mp_drawing = mp.solutions.drawing_utils
 
 pTime = 0
 cTime = 0
-	
 
 while True: 
     with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5) as holistic:
