@@ -8,4 +8,5 @@ Version 0.0.4
 So far, I've found an AI called Mediapipe, but it's just not suitable for Visual Studio, so I need to use my prototype, which has working code that implements Hand Detection.
 Version 0.1.0
 He abandoned the "Hand Detection" method because it does not separate the right and left hand. MEDIAPIPE has a "Holistic" method, thanks to which you can take the left and right hand separately, as well as face tracking, but a small FPS. So far, this is the only method I need to implement sign language. 
- 
+Version 0.1.1
+Increased FPS from "3" to "20" if the program takes a camera, and from "3" to "30" if the program takes video. 
