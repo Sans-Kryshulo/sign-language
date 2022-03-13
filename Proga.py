@@ -2,8 +2,8 @@ import cv2
 import mediapipe as mp
 import time
 
-# cap = cv2.VideoCapture(0) 
-cap = cv2.VideoCapture("Videos/1.mp4") 
+qcap = cv2.VideoCapture(0) 
+# cap = cv2.VideoCapture("Videos/1.mp4") 
 
 mp_holistic = mp.solutions.holistic
 mp_drawing = mp.solutions.drawing_utils
