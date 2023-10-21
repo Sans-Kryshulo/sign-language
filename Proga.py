@@ -11,6 +11,17 @@ mp_drawing = mp.solutions.drawing_utils
 pTime = 0
 cTime = 0
 
+def count_fingers(results):
+    # The order of key points that are used for finger analysis
+    finger_point_indices = [4, 8, 12, 16, 20]
+    thumb_tip = results.right_hand_landmarks.landmark[4].y
+
+    finger_count = 0
+    for point_index in finger_point_indices:
+        if results.right_hand_landmarks.landmark[point_index].y < thumb_tip:
+            finger_count += 1
+    return finger_count
+
 with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5) as holistic:
     
     while qcap.isOpened():
@@ -38,7 +49,13 @@ with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=
         fps = 1/(cTime-pTime)
         pTime = cTime
         cv2.putText(image, str(int(fps)),(10,30), cv2.FONT_HERSHEY_PLAIN, 2, (255,0,0), 2)
-                        
+
+        # Cut off a few fingers
+        if results.right_hand_landmarks:
+            finger_count = count_fingers(results)
+            cv2.putText(image, f'Fingers: {finger_count}', (10, 70), cv2.FONT_HERSHEY_PLAIN, 2, (0, 255, 0), 2)
+ 
+
         cv2.imshow('Raw Webcam Feed', image)
 
         if cv2.waitKey(10) & 0xFF == ord('q'):
