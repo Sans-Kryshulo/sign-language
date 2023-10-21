@@ -11,14 +11,14 @@ mp_drawing = mp.solutions.drawing_utils
 pTime = 0
 cTime = 0
 
-def count_fingers(results):
+def count_fingers(hand_landmarks):
     # The order of key points that are used for finger analysis
     finger_point_indices = [4, 8, 12, 16, 20]
-    thumb_tip = results.right_hand_landmarks.landmark[4].y
+    thumb_tip = hand_landmarks.landmark[4].y
 
     finger_count = 0
     for point_index in finger_point_indices:
-        if results.right_hand_landmarks.landmark[point_index].y < thumb_tip:
+        if hand_landmarks.landmark[point_index].y < thumb_tip:
             finger_count += 1
     return finger_count
 

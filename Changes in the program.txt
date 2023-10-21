@@ -12,3 +12,5 @@ Version 0.1.1
 Increased FPS from "3" to "20" if the program takes a camera, and from "3" to "30" if the program takes video. 
 Version 0.1.2
 A function was written to calculate the fingers on the right hand
+Version 0.1.3
+The program counts fingers on the left hand as well
