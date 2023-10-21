@@ -49,12 +49,15 @@ with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=
         fps = 1/(cTime-pTime)
         pTime = cTime
         cv2.putText(image, str(int(fps)),(10,30), cv2.FONT_HERSHEY_PLAIN, 2, (255,0,0), 2)
-
-        # Cut off a few fingers
+        
+        # Get the number of fingers on both hands
         if results.right_hand_landmarks:
-            finger_count = count_fingers(results)
-            cv2.putText(image, f'Fingers: {finger_count}', (10, 70), cv2.FONT_HERSHEY_PLAIN, 2, (0, 255, 0), 2)
- 
+            right_finger_count = count_fingers(results.right_hand_landmarks)
+            cv2.putText(image, f'Right Fingers: {right_finger_count}', (10, 70), cv2.FONT_HERSHEY_PLAIN, 2, (0, 255, 0), 2)
+        
+        if results.left_hand_landmarks:
+            left_finger_count = count_fingers(results.left_hand_landmarks)
+            cv2.putText(image, f'Left Fingers: {left_finger_count}', (10, 110), cv2.FONT_HERSHEY_PLAIN, 2, (0, 255, 0), 2)
 
         cv2.imshow('Raw Webcam Feed', image)
 
